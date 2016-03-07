@@ -1,33 +1,12 @@
 package AnyEvent::TLS::SNI;
 # ABSTRACT: Adds Server Name Indication (SNI) support to AnyEvent::TLS client.
-
-=head1 SYNOPSIS
-
-    use AnyEvent::HTTP;
-    use AnyEvent::TLS::SNI;
-
-    my $cv = AnyEvent->condvar;
-    $cv->begin;
-    AnyEvent::HTTP::http_get(
-        'https://sni.velox.ch/',
-        tls_ctx => {
-            verify => 1,
-            verify_peername => 'https',
-            host_name => 'sni.velox.ch'
-        },
-        sub {
-            printf "Body length = %d\n", length( shift );
-            $cv->end;
-        }
-    );
-    $cv->recv;
-
-=cut
+$AnyEvent::TLS::SNI::VERSION = '0.02';
 
 use strict;
 use warnings;
 no warnings 'redefine';
 no strict 'refs';
+use AnyEvent::Socket;
 use AnyEvent::TLS;
 use Net::SSLeay;
 use Carp qw( croak );
@@ -66,3 +45,51 @@ use Carp qw( croak );
 }
 
 1;
+
+__END__
+
+=pod
+
+=encoding UTF-8
+
+=head1 NAME
+
+AnyEvent::TLS::SNI - Adds Server Name Indication (SNI) support to AnyEvent::TLS client.
+
+=head1 VERSION
+
+version 0.02
+
+=head1 SYNOPSIS
+
+    use AnyEvent::HTTP;
+    use AnyEvent::TLS::SNI;
+
+    my $cv = AnyEvent->condvar;
+    $cv->begin;
+    AnyEvent::HTTP::http_get(
+        'https://sni.velox.ch/',
+        tls_ctx => {
+            verify => 1,
+            verify_peername => 'https',
+            host_name => 'sni.velox.ch'
+        },
+        sub {
+            printf "Body length = %d\n", length( shift );
+            $cv->end;
+        }
+    );
+    $cv->recv;
+
+=head1 AUTHOR
+
+Alexander Nalobin <alexander@nalobin.ru>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2015 by Alexander Nalobin.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+=cut

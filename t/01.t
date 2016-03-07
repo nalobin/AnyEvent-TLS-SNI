@@ -1,6 +1,7 @@
 use AnyEvent::HTTP;
 use AnyEvent::TLS::SNI;
 use Test::More;
+use Net::SSLeay;
 
 if ( Net::SSLeay::OPENSSL_VERSION_NUMBER() < 0x01000000 ) {
     done_testing();

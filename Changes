@@ -1,2 +1,5 @@
+0.02    03 Aug  2015 Tim Jenkins
+        Workaround for hosts that start with numbers.
+
 0.01    14 Feb  2015 Alexander Nalobin
         First version, released on an unsuspecting world.
