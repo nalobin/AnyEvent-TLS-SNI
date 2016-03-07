@@ -55,6 +55,7 @@ __END__
 =head1 NAME
 
 AnyEvent::TLS::SNI - Adds Server Name Indication (SNI) support to AnyEvent::TLS client.
+This module IS DEPRECATED, AnyEvent 7.12 has SNI support. 
 
 =head1 VERSION
 
