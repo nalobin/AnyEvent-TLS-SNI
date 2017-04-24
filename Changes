@@ -1,3 +1,6 @@
+0.04    24 Apr  2017 Alexander Nalobin
+        Turn off test of non existant site.
+
 0.03    07 Mar  2016 Alexander Nalobin
         This module IS DEPRECATED, AnyEvent 7.12 has SNI support.
 
